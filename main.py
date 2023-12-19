@@ -185,13 +185,14 @@ class LawApplication:
         ttk.Radiobutton(self.master, text="LAW", variable=self.radio_var,
                         value="LAW", command=self.on_radio_change).grid(row=14, column=0, padx=self.padx,
                                                                         pady=self.pady, sticky=align)
-        ttk.Radiobutton(self.master, text="Subject", variable=self.radio_var,
-                        value="Subject", command=self.on_radio_change).grid(row=14, column=1, padx=self.padx,
-                                                                            pady=self.pady, sticky=align)
+
         ttk.Radiobutton(self.master, text="Action", variable=self.radio_var,
-                        value="Action", command=self.on_radio_change).grid(row=14, column=2, padx=self.padx,
+                        value="Action", command=self.on_radio_change).grid(row=14, column=1, padx=self.padx,
                                                                            pady=self.pady, sticky=align)
 
+        ttk.Radiobutton(self.master, text="Subject", variable=self.radio_var,
+                        value="Subject", command=self.on_radio_change).grid(row=14, column=2, padx=self.padx,
+                                                                            pady=self.pady, sticky=align)
     def setup_result_and_buttons(self):
         # Code result display
         align = 'nw'
@@ -490,9 +491,9 @@ class LawApplication:
     def toggle_radio_button(self):
         current_radio = self.radio_var.get()
         if current_radio == "LAW":
-            self.radio_var.set("Subject")
-        elif current_radio == "Subject":
             self.radio_var.set("Action")
+        elif current_radio == "Action":
+            self.radio_var.set("Subject")
         else:
             self.radio_var.set("LAW")
         self.on_radio_change()
