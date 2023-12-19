@@ -410,18 +410,18 @@ class LawApplication:
         self.data["NAME"] = self.large_text_inputList[0].get("1.0", "end-1c")
         self.data["INFO"] = self.large_text_inputList[1].get("1.0", "end-1c")
         self.data["LIST_ORDER"] = int(self.inputList[1].get())
-        self.data["ATTRIBUTE_TORGUULI_MIN"] = int(self.inputList[6].get()) if self.inputList[
-                                                                                  6].get() & selected_radio == "LAW" else ''
-        self.data["ATTRIBUTE_TORGUULI_MAX"] = int(self.inputList[7].get()) if self.inputList[
-                                                                                  7].get() & selected_radio == "LAW" else ''
+        self.data["ATTRIBUTE_TORGUULI_MIN"] = int(self.inputList[6].get()) if (self.inputList[6].get()
+                                                                               and selected_radio == "LAW") else ''
+        self.data["ATTRIBUTE_TORGUULI_MAX"] = int(self.inputList[7].get()) if (self.inputList[7].get()
+                                                                               and selected_radio == "LAW") else ''
         self.data["ATTRIBUTE_NEGJ"] = int(self.isNegj.get()) if selected_radio == "LAW" else ''
         self.data["ATTRIBUTE_ERH_HASAH"] = int(self.isErhHasah.get()) if selected_radio == "LAW" else ''
         self.data["ATTRIBUTE_BARIVCHLAH"] = int(self.isBarivchlah.get()) if selected_radio == "LAW" else ''
         self.data["ATTRIBUTE_ALBADLAGA"] = int(self.isAlbadlaga.get()) if selected_radio == "LAW" else ''
         self.data["ATTRIBUTE_TUSGAI_JURAM"] = int(self.isTusgaiJuram.get()) if selected_radio == "LAW" else ''
         self.data["ATTRIBUTE_TUSGAI_SUNGALT"] = int(self.isTusgaiSungalt.get()) if selected_radio == "LAW" else ''
-        self.data["ATTRIBUTE_STATUTE_OF_LIMITATIONS"] = int(self.inputList[8].get()) if self.inputList[
-                                                                                            8].get() & selected_radio == "LAW" else ''
+        self.data["ATTRIBUTE_STATUTE_OF_LIMITATIONS"] = int(self.inputList[8].get()) if (self.inputList[8].get()
+                                                                                         and selected_radio == "LAW") else ''
         self.data["ATTRIBUTE_ARTICLE_CODE"] = self.article_code if selected_radio == "Action" else ''
         self.data["ATTRIBUTE_CODE_PREFIX"] = self.article_code if selected_radio == "Subject" else ''
         self.data["PUBLISHED"] = int(self.isPublished.get())
