@@ -26,7 +26,7 @@ class LawApplication:
         self.csv_file_path = os.path.join(self.user_home_dir, "Desktop")
         self.csv_file_name = "huuli.csv"
         self.recovery_file_path = os.path.join(self.user_home_dir, "Documents")
-        self.recovery_file_name = "giz-huuli-recovery.txt"
+        self.recovery_file_name = "giz-huuli-recovery"
 
         # instance attributes
         self.law_parent_id = 0
@@ -516,10 +516,8 @@ class LawApplication:
         }
         print(data)
         file_path = os.path.join(self.recovery_file_path, self.recovery_file_name)
-        if not os.path.exists(file_path):
-            with open(file_path, 'w') as file:
-                json.dump(data, file, indent=4)
-        print("data saved")
+        with open(file_path, 'w') as file:
+            json.dump(data, file, indent=4)
 
     def read_recovery_file(self):
         print("trying to recall")
