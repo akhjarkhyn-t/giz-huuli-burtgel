@@ -541,8 +541,10 @@ class LawApplication:
                 print("recall success")
         else:
             print("recall failed")
+
     def __del__(self):
         self.on_closing()
+
 
 def main():
     root = tk.Tk()
