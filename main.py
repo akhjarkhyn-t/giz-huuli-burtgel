@@ -245,9 +245,9 @@ class LawApplication:
         self.section = int(self.inputList[3].get()) if self.inputList[3].get() else 0
         self.article = int(self.inputList[4].get()) if self.inputList[4].get() else 0
         self.sub_article = int(self.inputList[5].get()) if self.inputList[5].get() else 0
-        self.article_code = self.code_textbox.get()
         self.generate_law_index()
         self.show_law_code()
+        self.article_code = self.code_textbox.get()
 
     def set_action_data(self):
         self.action_code = int(self.code_textbox.get()) if self.code_textbox.get() else 0
@@ -422,7 +422,7 @@ class LawApplication:
         self.data["ATTRIBUTE_TUSGAI_SUNGALT"] = int(self.isTusgaiSungalt.get()) if selected_radio == "LAW" else ''
         self.data["ATTRIBUTE_STATUTE_OF_LIMITATIONS"] = int(self.inputList[8].get()) if (self.inputList[8].get()
                                                                                          and selected_radio == "LAW") else ''
-        self.data["ATTRIBUTE_ARTICLE_CODE"] = self.article_code if selected_radio == "Action" else ''
+        self.data["ATTRIBUTE_ARTICLE_CODE"] = self.article_textbox.get() if self.article_textbox.get() == "Action" else ''
         self.data["ATTRIBUTE_CODE_PREFIX"] = self.article_code if selected_radio == "Subject" else ''
         self.data["PUBLISHED"] = int(self.isPublished.get())
 
@@ -456,7 +456,8 @@ class LawApplication:
             if current_text.endswith("\n"):
                 current_text = current_text[:-1]
             self.large_text_inputList[0].delete("1.0", tk.END)
-            combined_text = current_text + " " + copied_text
+            combined_text = current_text + " " if len(current_text) > 0 else ''
+            combined_text += copied_text
             self.large_text_inputList[0].insert("1.0", combined_text)
 
     def copy_and_paste_into_info(self):
@@ -468,7 +469,8 @@ class LawApplication:
             if current_text.endswith("\n"):
                 current_text = current_text[:-1]
             self.large_text_inputList[1].delete("1.0", tk.END)
-            combined_text = current_text + " " + copied_text
+            combined_text = current_text + " " if len(current_text) > 0 else ''
+            combined_text += copied_text
             self.large_text_inputList[1].insert("1.0", combined_text)
 
     def toggle_checkbox(self, param):
