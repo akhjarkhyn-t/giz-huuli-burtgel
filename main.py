@@ -423,8 +423,8 @@ class LawApplication:
         self.data["ATTRIBUTE_TUSGAI_SUNGALT"] = int(self.isTusgaiSungalt.get()) if selected_radio == "LAW" else ''
         self.data["ATTRIBUTE_STATUTE_OF_LIMITATIONS"] = int(self.inputList[8].get()) if (self.inputList[8].get()
                                                                                          and selected_radio == "LAW") else ''
-        self.data["ATTRIBUTE_ARTICLE_CODE"] = self.article_textbox.get() if self.article_textbox.get() == "Action" else ''
-        self.data["ATTRIBUTE_CODE_PREFIX"] = self.article_code if selected_radio == "Subject" else ''
+        self.data["ATTRIBUTE_ARTICLE_CODE"] = self.article_textbox.get() if self.article_textbox.get() and selected_radio == "Action" else ''
+        self.data["ATTRIBUTE_CODE_PREFIX"] = self.article_textbox.get() if self.article_textbox.get() and selected_radio == "Subject" else ''
         self.data["PUBLISHED"] = int(self.isPublished.get())
 
     def upload_data_to_file(self):
