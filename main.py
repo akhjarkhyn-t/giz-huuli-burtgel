@@ -84,6 +84,7 @@ class LawApplication:
         keyboard.add_hotkey("ctrl+enter", lambda: self.on_save_button_clicked(), suppress=True)
         keyboard.add_hotkey("ctrl+shift+enter", lambda: self.on_set_button_clicked())
         keyboard.add_hotkey("ctrl+q", lambda: self.toggle_radio_button(), suppress=True)
+        keyboard.add_hotkey("ctrl+left", lambda: self.on_generate_next_button_clicked(), suppress=True)
 
     def setup_styles(self):
         self.master.style = ttk.Style()
